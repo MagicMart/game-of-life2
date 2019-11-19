@@ -1,12 +1,11 @@
 import React from "react";
 
 function Cell({ state, coord, dispatch }) {
-  return (
-    <div
-      onClick={() => dispatch({ type: "paint", payload: coord })}
-      className={`cell ${state}`}
-    />
-  );
+  const handleDispatch = () => {
+    dispatch({ type: "paint", payload: coord });
+  };
+
+  return <div onClick={handleDispatch} className={`cell ${state}`} />;
 }
 
 export default React.memo(Cell, (prev, next) => {
