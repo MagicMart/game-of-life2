@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+:root {
+  --cell-width: 5%;
+  --cell-height: 5%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.cell {
+  width: var(--cell-width);
+  height: var(--cell-height);
+  border: 1px solid black;
+}
+
+.alive {
+  background: red;
+}
+
+.dead {
+  background: white;
+}
