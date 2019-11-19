@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import Cell from "./Cell";
-import Click from "./Click";
+import Tick from "./Tick";
 
 const makeMatrix = size => {
   const x = Array.from({ length: size }).fill(0);
@@ -11,21 +11,24 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "paint":
       const [row, col] = action.payload;
-      let nextState = state.map(x => x.slice());
-      nextState[row][col] = state[row][col] === 1 ? 0 : 1;
-      return nextState;
+      let nextState = state.matrix.map(x => x.slice());
+      nextState[row][col] = state.matrix[row][col] === 1 ? 0 : 1;
+      return { ...state, matrix: nextState };
     case "tick":
-      return action.payload;
+      return { ...state, matrix: action.payload };
     default:
       return state;
   }
 };
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, makeMatrix(20));
+  const [state, dispatch] = useReducer(reducer, {
+    matrix: makeMatrix(20),
+    ticking: false
+  });
   return (
     <div className="container">
-      {state.map((row, i) =>
+      {state.matrix.map((row, i) =>
         row.map((col, j) => (
           <Cell
             key={`${i} ${j}`}
@@ -35,7 +38,7 @@ function App() {
           />
         ))
       )}
-      <Click state={state} dispatch={dispatch} />
+      <Tick state={state} dispatch={dispatch} />
     </div>
   );
 }
