@@ -8,7 +8,7 @@ function Ticker({ dispatch, matrix }) {
       () => dispatch({ type: "tick", payload: lifeOrDeath(matrix) }),
       200
     );
-    return () => window.clearTimeout(timerId);
+    return () => window.clearTimeout(timerId.current);
   });
 
   return (
