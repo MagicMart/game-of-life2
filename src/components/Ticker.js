@@ -6,7 +6,7 @@ function Ticker({ dispatch, matrix }) {
   React.useEffect(() => {
     timerId.current = window.setTimeout(
       () => dispatch({ type: "tick", payload: lifeOrDeath(matrix) }),
-      500
+      200
     );
     return () => window.clearTimeout(timerId);
   });
