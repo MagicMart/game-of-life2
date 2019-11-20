@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import Cell from "./Cell";
 import Tick from "./Tick";
+import Ticker from "./Ticker";
 
 const makeMatrix = size => {
   const x = Array.from({ length: size }).fill(0);
@@ -16,6 +17,8 @@ const reducer = (state, action) => {
       return { ...state, matrix: nextState };
     case "tick":
       return { ...state, matrix: action.payload };
+    case "ticking":
+      return { ...state, ticking: !state.ticking };
     default:
       return state;
   }
@@ -26,6 +29,7 @@ function App() {
     matrix: makeMatrix(20),
     ticking: false
   });
+
   return (
     <div className="container">
       {state.matrix.map((row, i) =>
@@ -39,6 +43,13 @@ function App() {
         ))
       )}
       <Tick state={state} dispatch={dispatch} />
+      {state.ticking ? (
+        <Ticker dispatch={dispatch} matrix={state.matrix} />
+      ) : (
+        <button onClick={() => dispatch({ type: "ticking" })} className="no-go">
+          GO
+        </button>
+      )}
     </div>
   );
 }

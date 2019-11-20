@@ -33,3 +33,11 @@ html {
 .dead {
   background: white;
 }
+
+.go {
+  background: green;
+}
+
+.no-go {
+  background: grey;
+}
