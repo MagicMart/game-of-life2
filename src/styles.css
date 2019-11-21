@@ -12,6 +12,16 @@ html {
   --cell-height: 5%;
 }
 
+body {
+  margin: 0;
+}
+
+h1 {
+  background: black;
+  color: red;
+  text-align: center;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;

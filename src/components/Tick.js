@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { lifeOrDeath } from "../utils/helpers";
 
 function Tick({ state, dispatch }) {
@@ -12,5 +13,10 @@ function Tick({ state, dispatch }) {
     </button>
   );
 }
+
+Tick.propTypes = {
+  state: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired
+};
 
 export default Tick;
