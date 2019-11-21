@@ -25,14 +25,17 @@ const reducer = (state, action) => {
       return { ...state, matrix: action.payload };
     case "ticking":
       return { ...state, ticking: !state.ticking };
+    case "clear":
+      return { ticking: false, matrix: makeMatrix(20) };
     default:
       return state;
   }
 };
 
 function App() {
+  const size = 20;
   const [state, dispatch] = useReducer(reducer, {
-    matrix: makeMatrix(20),
+    matrix: makeMatrix(size),
     ticking: false
   });
 
@@ -56,6 +59,7 @@ function App() {
           GO
         </button>
       )}
+      <button onClick={() => dispatch({ type: "clear" })}>Clear</button>
     </div>
   );
 }
