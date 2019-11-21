@@ -42,7 +42,7 @@ function App() {
         row.map((col, j) => (
           <Cell
             key={`${i} ${j}`}
-            state={col === 1 ? "alive" : "dead"}
+            condition={col === 1 ? "alive" : "dead"}
             coord={[i, j]}
             dispatch={dispatch}
           />
