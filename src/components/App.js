@@ -40,26 +40,32 @@ function App() {
   });
 
   return (
-    <div className="container">
-      {state.matrix.map((row, i) =>
-        row.map((col, j) => (
-          <Cell
-            key={`${i} ${j}`}
-            condition={col === 1 ? "alive" : "dead"}
-            coord={[i, j]}
-            dispatch={dispatch}
-          />
-        ))
-      )}
-      <Tick state={state} dispatch={dispatch} />
-      {state.ticking ? (
-        <Ticker dispatch={dispatch} matrix={state.matrix} />
-      ) : (
-        <button onClick={() => dispatch({ type: "ticking" })} className="no-go">
-          GO
-        </button>
-      )}
-      <button onClick={() => dispatch({ type: "clear" })}>Clear</button>
+    <div>
+      <h1>Game of life</h1>
+      <div className="container">
+        {state.matrix.map((row, i) =>
+          row.map((col, j) => (
+            <Cell
+              key={`${i} ${j}`}
+              condition={col === 1 ? "alive" : "dead"}
+              coord={[i, j]}
+              dispatch={dispatch}
+            />
+          ))
+        )}
+        <Tick state={state} dispatch={dispatch} />
+        {state.ticking ? (
+          <Ticker dispatch={dispatch} matrix={state.matrix} />
+        ) : (
+          <button
+            onClick={() => dispatch({ type: "ticking" })}
+            className="no-go"
+          >
+            GO
+          </button>
+        )}
+        <button onClick={() => dispatch({ type: "clear" })}>Clear</button>
+      </div>
     </div>
   );
 }
