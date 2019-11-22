@@ -13,7 +13,11 @@ const makeMatrix = size => {
   const x = Array.from({ length: size }).fill(0);
   return Array.from({ length: size }).fill(x);
 };
-
+/**
+ *
+ * @param {Object} state
+ * @param {Object} action
+ */
 const reducer = (state, action) => {
   switch (action.type) {
     case "paint":
@@ -43,15 +47,21 @@ function App() {
     <div>
       <h1>Game of life</h1>
       <div className="container">
-        {state.matrix.map((row, i) =>
-          row.map((col, j) => (
-            <Cell
-              key={`${i} ${j}`}
-              condition={col === 1 ? "alive" : "dead"}
-              coord={[i, j]}
-              dispatch={dispatch}
-            />
-          ))
+
+        {state.matrix.map(
+          /**
+           * @param {Array<number>} row
+           * @param {number} i
+           */ (row, i) =>
+            row.map((col, j) => (
+              <Cell
+                key={`${i} ${j}`}
+                condition={col === 1 ? "alive" : "dead"}
+                coord={[i, j]}
+                dispatch={dispatch}
+              />
+            ))
+
         )}
         <Tick state={state} dispatch={dispatch} />
         {state.ticking ? (

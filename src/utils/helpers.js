@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * Applies the rules of the "game of life" to the matrix
  * and returns the new matrix
