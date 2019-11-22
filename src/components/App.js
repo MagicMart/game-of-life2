@@ -47,6 +47,7 @@ function App() {
     <div>
       <h1>Game of life</h1>
       <div className="container">
+
         {state.matrix.map(
           /**
            * @param {Array<number>} row
@@ -60,6 +61,7 @@ function App() {
                 dispatch={dispatch}
               />
             ))
+
         )}
         <Tick state={state} dispatch={dispatch} />
         {state.ticking ? (
