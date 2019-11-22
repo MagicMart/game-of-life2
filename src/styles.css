@@ -14,10 +14,10 @@ html {
 
 body {
   margin: 0;
+  background: #303d27;
 }
 
 h1 {
-  background: black;
   color: red;
   text-align: center;
 }
