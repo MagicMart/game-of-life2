@@ -61,18 +61,22 @@ function App() {
               />
             ))
         )}
-        <Tick state={state} dispatch={dispatch} />
-        {state.ticking ? (
-          <Ticker dispatch={dispatch} matrix={state.matrix} />
-        ) : (
-          <button
-            onClick={() => dispatch({ type: "ticking" })}
-            className="no-go"
-          >
-            GO
+        <div className="container-buttons">
+          <Tick className="btn" state={state} dispatch={dispatch} />
+          {state.ticking ? (
+            <Ticker dispatch={dispatch} matrix={state.matrix} />
+          ) : (
+            <button
+              onClick={() => dispatch({ type: "ticking" })}
+              className="no-go btn"
+            >
+              GO
+            </button>
+          )}
+          <button className="btn" onClick={() => dispatch({ type: "clear" })}>
+            Clear
           </button>
-        )}
-        <button onClick={() => dispatch({ type: "clear" })}>Clear</button>
+        </div>
       </div>
     </div>
   );

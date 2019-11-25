@@ -30,6 +30,17 @@ h1 {
   border: 1px solid #000000;
 }
 
+.container-buttons {
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.btn {
+  padding: 1em 2em;
+}
+
 .cell {
   width: var(--cell-width);
   height: var(--cell-height);

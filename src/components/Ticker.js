@@ -12,7 +12,7 @@ function Ticker({ dispatch, matrix }) {
   });
 
   return (
-    <button onClick={() => dispatch({ type: "ticking" })} className="go">
+    <button className="go btn" onClick={() => dispatch({ type: "ticking" })}>
       GO
     </button>
   );
