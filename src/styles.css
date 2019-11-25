@@ -17,7 +17,6 @@ body {
 }
 
 h1 {
-  background: black;
   color: red;
   text-align: center;
 }
@@ -28,6 +27,7 @@ h1 {
   width: 400px;
   height: 400px;
   margin: 0 auto;
+  border: 1px solid #000000;
 }
 
 .cell {
