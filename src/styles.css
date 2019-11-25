@@ -33,21 +33,21 @@ h1 {
 .cell {
   width: var(--cell-width);
   height: var(--cell-height);
-  border: 1px solid black;
+  border: 1px solid #000000;
 }
 
 .alive {
-  background: red;
+  background: #ff0000;
 }
 
 .dead {
-  background: white;
+  background: #ffffff;
 }
 
 .go {
-  background: green;
+  background: #008000;
 }
 
 .no-go {
-  background: grey;
+  background: #808080;
 }
