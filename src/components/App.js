@@ -1,5 +1,3 @@
-// @ts-check
-
 import React, { useReducer } from "react";
 import Cell from "./Cell";
 import Tick from "./Tick";
