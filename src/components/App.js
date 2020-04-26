@@ -8,8 +8,8 @@ import Ticker from "./Ticker";
  * @returns {Array<Array<number>>}
  */
 const makeMatrix = size => {
-  const x = Array.from({ length: size }).fill(0);
-  return Array.from({ length: size }).fill(x);
+  const row = Array.from({length: size}, () => 0);
+  return  Array.from({ length: size}, () => row);
 };
 /**
  *
